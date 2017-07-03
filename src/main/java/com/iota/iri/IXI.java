@@ -68,7 +68,7 @@ public class IXI {
             List<Path> extensionPaths = extensions.get(getExtensionPath(path));
             final Path packagePath = path.getFileName().toString().equals("package.json")? path:
                     extensionPaths != null && extensionPaths.contains(path) ? extensionPaths.get(0): null;
-            if(packagePath != null) {
+            if(packagePath != null && !visitedPaths.contains(packagePath)) {
                 log.info("start script: " + packagePath.toString());
                 loadExtension(packagePath);
             }
