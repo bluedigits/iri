@@ -93,6 +93,7 @@ public class IXI {
         if(paths != null && paths.contains(path)) {
             log.debug("detach child: "+ path);
             detach(getExtensionPath(path).toString());
+            visitedPaths.removeAll(paths);
             ixiAPI.remove(path.toString());
         }
     }
